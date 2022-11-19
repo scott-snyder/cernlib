@@ -55,7 +55,7 @@
 #elif defined(CERNLIB_WINNT)
       DATA         IPATT/Z'0123CDEF'/
 #elif defined(CERNLIB_DECS) || defined(CERNLIB_LINUX)
-      DATA         IPATT/X'0123CDEF'/
+      DATA         IPATT/z'0123CDEF'/
 #elif defined(CERNLIB_VAX)
       DATA         IPATT/Z0123CDEF/
 #endif

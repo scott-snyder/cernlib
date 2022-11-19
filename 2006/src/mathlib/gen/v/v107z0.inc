@@ -19,7 +19,7 @@
 * v107z0.inc
 *
 
-#if defined(CERNLIB_LNX)||defined(CERNLIB_ALLIANT)||defined(CERNLIB_DECS)||defined(CERNLIB_MACMPW)||defined(CERNLIB_SGI)
+#if defined(CERNLIB_ALLIANT)||defined(CERNLIB_DECS)||defined(CERNLIB_MACMPW)||defined(CERNLIB_SGI)
 #if !defined(CERNLIB_GFORTRAN)
       DATA IZ0/'33000000'X/
 #else

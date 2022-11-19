@@ -1970,7 +1970,7 @@
 #endif
 #if defined(CERNLIB_SUN)||defined(CERNLIB_SGI)||defined(CERNLIB_IBMRT)||defined(CERNLIB_DECS)||defined(CERNLIB_MSDOS)||defined(CERNLIB_LINUX)||defined(CERNLIB_CVY)||defined(CERNLIB_WINNT)
       SAVE IA
-# if defined(CERNLIB_F90) || defined(CERNLIB_QFEPC) || defined(CERNLIB_QFMSOFT)
+# if defined(CERNLIB_F90) || defined(CERNLIB_QFEPC) || defined(CERNLIB_QFMSOFT) || defined(CERNLIB_LINUX)
       DATA (IX11(I),I=1,50)/
      +Z'1969C7D6',Z'217DC699',Z'269E79A4',Z'00FDF864',Z'2185E716',
      +Z'0000003F',Z'1C6DA696',Z'2696489E',Z'27663966',Z'0000003F',
