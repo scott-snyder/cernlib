@@ -134,7 +134,7 @@ int     *ovflw;
 #endif /* hpux */
 
 	if ( (ps=(FILE *)popen(command,"r"))==NULL ) {
-		fprintf(stderr,"systems(): popen(): %s\n",sys_errlist[errno] );
+		fprintf(stderr,"systems(): popen(): %s\n",strerror(errno) );
 		*rc= -errno;
 		*chars=0        ;
                 *l=0        ;
@@ -144,7 +144,7 @@ int     *ovflw;
 	rcode = fread(buf, 1, buflen , ps );
 	if ( rcode < 0 ) {
 		fprintf(stderr,"systems(): pipe fread(): %s\n",
-                                                       sys_errlist[errno] );
+                                                       strerror(errno) );
 		buf[0]='\n';
 		*rc= -errno;
                 *chars=0        ;

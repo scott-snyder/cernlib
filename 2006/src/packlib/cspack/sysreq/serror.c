@@ -176,15 +176,7 @@ int     n;
         }
         else {
 #if !defined(vms)
-                if ((n>0) && (n<sys_nerr)) {
-                        return(sys_errlist[n]);
-                }
-                else {
-                        (void) sprintf(buf,"%s: %d\n",
- sys_serrlist[SEMAXERR+1-SEBASEOFF],
-                            n);
-                        return(buf);
-                }
+                return strerror (n);
 #else /* vms */
 /*
  * There are (were) some bugs is DEC C compilers (/OPT), just check

@@ -109,6 +109,8 @@ static struct {         /* VMS generic descriptor               */
         VMSMAXMSGLEN, vmsmsg };
  
 #else /* ! vms */
+
+#include <sys/ioctl.h>
  
 #define READ(x,y,z)     recv(x,y,z,0)   /* Actual read system call      */
 #define WRITE(x,y,z)    send(x,y,z,0)   /* Actual write system  call    */
@@ -412,7 +414,7 @@ char *
 s_errmsg()                              /* return last error message    */
 {
 #if !defined(vms)
-        return(sys_errlist[errno]);
+        return(strerror(errno));
 #else /* vms */
 #if defined(MULTINET) && (MULTINET == 1)
         return(vms_errno_string());
