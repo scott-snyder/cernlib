@@ -67,7 +67,7 @@ EXTERN struct {
 
 #define Quest F77_BLOCK(quest,QUEST)
 
-EXTERN struct {
+extern struct {
   INTEGER DATA[100];
 } F77_COMMON(Quest);
 

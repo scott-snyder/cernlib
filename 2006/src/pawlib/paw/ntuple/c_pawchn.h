@@ -55,7 +55,7 @@ typedef struct {
 } pawch3_def;
 
 #define PAWCH3 COMMON_BLOCK(PAWCH3,pawch3)
-COMMON_BLOCK_DEF(pawch3_def,PAWCH3);
+COMMON_BLOCK_DEF(pawch3_def,PAWCH3) __attribute__((aligned(32)));
 
 
 #endif	/*	CERN_PAWCHN	*/

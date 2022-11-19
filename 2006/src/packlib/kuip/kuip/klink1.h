@@ -1,4 +1,5 @@
-struct {                        /*                                         */ __
+extern
+struct klnkaddr_struct {                        /*                                         */ __
   /* indirect calls to avoid linking HIGZ                                  */ __
   IntFunc    *graf_info_C;      /* pass display, open and close (ixmotif)  */ __
   SUBROUTINE *graf_size_F;      /* resize window (IGRSIZ)                  */ __

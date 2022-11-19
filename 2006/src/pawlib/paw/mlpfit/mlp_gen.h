@@ -8,6 +8,9 @@ typedef double dbl;
 typedef float type_pat;
 
 /* definition du reseau */
+#if !defined(EXTERNMLP_GEN)
+extern
+#endif
 struct 
 {
   int Nlayer, *Nneur, Nweights;
@@ -20,6 +23,9 @@ struct
 #define NET net_   
 
 /* apprentissage */
+#if !defined(EXTERNMLP_GEN)
+extern
+#endif
 struct
 {
 	int Nepoch, Meth, Nreset;
@@ -31,6 +37,9 @@ struct
 } learn_;
 #define LEARN learn_
 
+#if !defined(EXTERNMLP_GEN)
+extern
+#endif
 struct 
 {
 	int Npat[2],Iponde, Nin, Nout;
@@ -40,6 +49,9 @@ struct
 } pat_;
 #define PAT pat_
 
+#if !defined(EXTERNMLP_GEN)
+extern
+#endif
 struct
 {
 	int Dbin;
@@ -49,6 +61,9 @@ struct
 } divers_;
 #define DIVERS divers_	
 
+#if !defined(EXTERNMLP_GEN)
+extern
+#endif
 struct
 {
 	dbl *mean,*sigma;
@@ -68,6 +83,13 @@ int NetMemory = 0;
 float MLPfitVersion = (float) 1.40;
 dbl LastAlpha = 0;
 int NLineSearchFail = 0;
+dbl ***dir;
+dbl *delta;
+dbl **BFGSH;
+dbl *Gamma;
+dbl **JacobianMatrix;
+int *ExamplesIndex;
+dbl **Hessian;
 #else
 extern int MessLang;
 extern int OutputWeights;
@@ -81,15 +103,14 @@ extern int NetMemory;
 extern float MLPfitVersion;
 extern dbl LastAlpha;
 extern int NLineSearchFail;
+extern dbl ***dir;
+extern dbl *delta;
+extern dbl **BFGSH;
+extern dbl *Gamma;
+extern dbl **JacobianMatrix;
+extern int *ExamplesIndex;
+extern dbl **Hessian;
 #endif
-
-dbl ***dir;
-dbl *delta;
-dbl **BFGSH;
-dbl *Gamma;
-dbl **JacobianMatrix;
-int *ExamplesIndex;
-dbl **Hessian;
 
 void 	MLP_Out(type_pat *rrin, dbl *rrout);
 void 	MLP_Out2(type_pat *rrin);

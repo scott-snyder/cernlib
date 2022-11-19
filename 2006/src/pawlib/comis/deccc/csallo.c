@@ -45,7 +45,7 @@ typedef struct {
 } mdpool_def;
 
 #define MDPOOL COMMON_BLOCK(MDPOOL,mdpool)
-COMMON_BLOCK_DEF(mdpool_def,MDPOOL);
+COMMON_BLOCK_DEF(mdpool_def,MDPOOL) __attribute__ ((aligned(32)));
 
 unsigned long iqpntr = (unsigned long)MDPOOL.iq;
 

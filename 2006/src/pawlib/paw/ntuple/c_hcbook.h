@@ -40,7 +40,7 @@ typedef struct {
 			float	_q[1];
 			int	_iq[1];
 		} iq_base;
-	float	hcv[9981];
+	float	hcv[1999981];
 } pawc_def;
 
 #define	lmain	lq_base._lmain

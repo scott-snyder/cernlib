@@ -55,7 +55,7 @@ COMMON_BLOCK_DEF(hcdirc_def,HCDIRC);
 
 
 typedef struct {
-	char	hfname[MXFILES][80];
+	char	hfname[MXFILES][128];
 } hcfile_def;
 
 #define HCFILE COMMON_BLOCK(HCFILE,hcfile)

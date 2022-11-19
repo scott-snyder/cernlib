@@ -25,6 +25,8 @@
 #include "kuip/kmenu.h"
 #include "kuip/kflag.h"
 
+struct klnkaddr_struct klnkaddr;
+
 static char *editor_cmd  = NULL; /* command which envoked edit server */
 static char *editor_file = NULL; /* file which was edited */
 static char  editor_tmp[22];     /* file to use as a lock file */

@@ -37,7 +37,7 @@ extern int km_cmd_list();
 extern int km_display_list();
 extern int km_kmenu_OK();
 
-int Error;                      /* want by libPW.a routines */
+extern int Error;                      /* want by libPW.a routines */
 
 static int init = 0;
 
