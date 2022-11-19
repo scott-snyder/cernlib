@@ -174,7 +174,7 @@
 #define XargsCmd		xargs
 #define FortranSaveFlags	/* */ /* Everything static !? */
 #define DefaultFCOptions	-fno-automatic -fno-second-underscore -fugly-complex
-#define CernlibSystem	        -DCERNLIB_LINUX -DCERNLIB_UNIX -DCERNLIB_LNX -DCERNLIB_QMGLIBC -DCERNLIB_QMLXIA64
+#define CernlibSystem	        -DCERNLIB_LINUX -DCERNLIB_UNIX -DCERNLIB_LNX -DCERNLIB_QMGLIBC -DCERNLIB_QMLXIA64 -DCERNLIB_GFORTRAN
 
 # endif
 
