@@ -53,7 +53,7 @@
          [ $1 = "bvsl"    ] && ln="mathlib"
          [ $1 = "mpalib"  ] && ln="mathlib"
          [ $1 = "lapack"  ] && ln="lapack3.a $dir/libblas"
-	 [ $1 = "pawlib"  ] && ln="pawlib.a $dir/liblapack3.a $dir/libblas"
+	 [ $1 = "pawlib"  ] && ln="pawlib"
          [ $1 = "pythia"  ] && ln="jetset"
       if [ $1 = "GKS" -o $1 = "gks" ] ; then
          drv="X11" ; glib="$1" ; dir="$CERN/gks/$lver/lib"
@@ -69,7 +69,8 @@
          [ $drv = "Motif" ] && drv="X11"
          ln="$ln.a $dir/libgraf$drv"
       fi
-         CERNLIB="$CERNLIB $dir/lib$ln.a"
+      CERNLIB="$CERNLIB $dir/lib$ln.a"
+      if [ $1 == "pawlib" ]; then CERNLIB="$CERNLIB -llapack -lblas"; fi
   done
   [ $_p -eq 0 ] && CERNLIB="$CERNLIB $CERN/$gver/lib/libpacklib.a"
 
@@ -210,7 +211,7 @@
         echo $CERNLIB | grep pawlib >/dev/null &&   CERNLIB="$CERNLIB -lld"
      fi
      if [ "$Msys" = "Linux" ] ; then
-        CERNLIB="$CERNLIB -lnsl -lcrypt -ldl"
+        CERNLIB="$CERNLIB  -lcrypt -ldl"
      fi
      if [ "$Msys" = "Darwin" ] ; then
 	 CERNLIB1="$CERNLIB -L/usr/local/lib/system -lcompat -ldl"
