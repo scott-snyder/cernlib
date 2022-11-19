@@ -35,3 +35,6 @@ make install.bin TOP=$CERN_ROOT/build > ../log/scripts
 
 cd $CERN_ROOT/build
 C_INCLUDE_PATH=/usr/include/freetype2 make -j24 TOP=$CERN_ROOT/build
+
+cd pawlib/paw/programs
+make install.bin TOP=$CERN_ROOT/build 2>&1|tee log
