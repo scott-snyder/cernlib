@@ -4,7 +4,7 @@
 # Depending on the system, other directories may need to be added to the PATH
 # e.g. for the build tools and alternative compilers.
 
-export CERN_LEVEL=2005
+export CERN_LEVEL=2006
 if [ ! -z "$1" ]; then
 export CERN_LEVEL=$1
 fi
