@@ -1,0 +1,21 @@
+#!/usr/bin/sh
+
+export CERN_LEVEL=2006
+if [ ! -z "$1" ]; then
+export CERN_LEVEL=$1
+fi
+
+rm -rf $CERN_LEVEL/bin/
+rm -rf $CERN_LEVEL/build/cfortran/
+rm -rf $CERN_LEVEL/build/geant321/
+rm -rf $CERN_LEVEL/build/graflib/
+rm -rf $CERN_LEVEL/build/log/
+rm -rf $CERN_LEVEL/build/log1
+rm -rf $CERN_LEVEL/build/mathlib/
+rm -rf $CERN_LEVEL/build/mclibs/
+rm -rf $CERN_LEVEL/build/packlib/
+rm -rf $CERN_LEVEL/build/patchy/
+rm -rf $CERN_LEVEL/build/pawlib/
+rm -rf $CERN_LEVEL/build/phtools/
+rm -rf $CERN_LEVEL/build/scripts/
+rm -rf $CERN_LEVEL/lib/
