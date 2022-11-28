@@ -38,3 +38,6 @@
 #ifndef CERNLIB_QINTZERO
 #define CERNLIB_QINTZERO
 #endif
+#ifndef CERNLIB_QGETCWD
+#define CERNLIB_QGETCWD
+#endif
