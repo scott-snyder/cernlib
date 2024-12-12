@@ -37,7 +37,7 @@
 
 #if defined(CERNLIB_QX_SC)
 #define slate slate_
-struct { int  inum[40]; } slate_;
+extern struct { int  inum[40]; } slate_;
 void type_of_call datime_(id, it)
 #endif
 #if defined(CERNLIB_QXNO_SC)
