@@ -620,12 +620,20 @@ static struct {
 XImage * ImgScaling(Display *, XImage *, int, int);
 #endif
 
+void XRotSetMagnification(float m);
+int     XRotDrawAlignedString(Display*, XFontStruct*, float,
+                              Drawable, GC, int, int, char*, int);
+int     XRotDrawAlignedImageString(Display*, XFontStruct*, float,
+                                   Drawable, GC, int, int, char*, int);
+int GIFinfo(unsigned char* GIFarr, int* Width, int* Height, int* Ncols);
+int GIFdecode(unsigned char* GIFarr, unsigned char* PIXarr, int* Width, int* Height, int* Ncols, unsigned char* R, unsigned char* G, unsigned char* B);
+int GIFencode(int, ...);
+void ImgPickPalette(Display* display, XImage* image, int* ncol, int** R, int** G, int** B);
+
 /*
  *    Set input on or off
  */
-void
-  setinput(inp)
-int inp;
+void  setinput(int inp)
 {
   XSetWindowAttributes attributes;
   unsigned long attr_mask = 0;

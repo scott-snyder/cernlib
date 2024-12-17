@@ -289,6 +289,9 @@ static REAL *rzxin;
 static REAL *rzxout;
 static char piafrc_name[PATH_MAX+1];
 
+int NewPiaf ();
+int GetPiafVersion ();
+
 #ifdef IBM
 
 /* translation tables from COMMTXT TXTLIB */

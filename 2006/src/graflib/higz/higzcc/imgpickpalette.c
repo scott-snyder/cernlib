@@ -51,10 +51,7 @@ int FindColor(unsigned long, unsigned long *, int);
  * The R G B arrays must be deleted by the caller.                            *
  *                                                                            *
  ******************************************************************************/
-void ImgPickPalette(display, image, ncol, R, G, B)
-Display *display;
-XImage  *image;
-int     *ncol, **R, **G, **B;
+void ImgPickPalette(Display* display, XImage* image, int* ncol, int** R, int** G, int** B)
 {
    unsigned long *orgcolors, pixel;
    int      maxcolors, ncolors;

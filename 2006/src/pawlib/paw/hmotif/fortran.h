@@ -125,6 +125,16 @@ extern void hplgzo(int*, int*);
 
 #else
 
+extern void hplset_ (char*, float*, unsigned long);
+extern void gettitle_ (int*, char*, char*, unsigned long, unsigned long);
+extern void getang_ (float*, float*);
+extern void mhlattr_ (char*, int*, char*, int*, float*, float*, int*, float*, float*, int*, int*, long, long);
+extern void igq_ (char*, float*, long);
+extern void hplgzo_ (int*, int*);
+extern void gethplopt_ (char*, long);
+extern void gettp_ (float*, float*);
+extern void hplglb_ (int*, int*, char*, int*, long);
+
 #define getang               getang_
 #define hplgzo               hplgzo_
 #define gettp                gettp_

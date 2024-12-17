@@ -116,6 +116,8 @@ typedef unsigned char byte;
 #define linkage (ihzps  ,FORTRAN)
 #define linkage (ippfst ,FORTRAN)
 #endif
+
+extern void ippfst_ (char*, long);
  
 
 /*   U S E F U L   M A C R O S*/

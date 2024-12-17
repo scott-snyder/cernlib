@@ -89,9 +89,6 @@ typedef struct {        /* SYSREQ reply header                          */
  *      System routines
  */
  
-#ifndef VM
-extern char     *malloc();              /* Memory allocation            */
-#endif  /* VM */
 extern char     *getenv();              /* Get environment info         */
  
 /*

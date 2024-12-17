@@ -29,7 +29,9 @@
 #include	"qp_report.h"
 #include	"str.h"
 
+
 pTree	qp_the_parse_tree;	/* return the parse tree */
+int qp_scanner_lex();
 
 %}
 

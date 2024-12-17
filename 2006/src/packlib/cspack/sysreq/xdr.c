@@ -52,10 +52,6 @@ Hemmer";
 #define min(x, y)       (((x-y) > 0) ? y : x)
 #endif /* min */
  
-#ifndef VM
-extern char *malloc();
-#endif /* VM */
- 
 #ifdef VM
 extern char ebcdictoascii[], asciitoebcdic[];
 #endif /* VM */

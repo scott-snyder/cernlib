@@ -13,6 +13,7 @@ static char yysccsid[] = "@(#)yaccpar	1.7 (Berkeley) 09/09/90";
 #include	"str.h"
 
 pTree	qp_the_parse_tree;	/* return the parse tree */
+int qp_scanner_lex();
 
 extern void qp_scanner_get_pos( char **, int *);
 

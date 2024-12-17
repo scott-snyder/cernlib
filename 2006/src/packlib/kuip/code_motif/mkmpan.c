@@ -111,9 +111,9 @@ static void km_palette_view (int flag);
 #define MAX_PAL 10
 
 static PaletteStruct *cur_palette;
-static npal = 0;
+static int npal = 0;
 static Boolean addPan = True; /* Allow panel addition into a palette */
-static lpal[MAX_PAL] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+static int lpal[MAX_PAL] = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
 
 static PaletteStruct palette[MAX_PAL];
 static Pal *pal_panel[MAX_PAL] =
@@ -380,7 +380,7 @@ void km_panel_add (pw, name, geometry)
                                   NULL, NULL, NULL, NULL, NULL};
    static Dimension panel_width;
 
-   static ifirst = 0;
+   static int ifirst = 0;
 
    if (!addPan) { /* Maximum number of kuipPalette reached */
          km_warn_user(km_toplevel, 

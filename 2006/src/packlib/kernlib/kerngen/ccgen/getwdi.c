@@ -59,7 +59,6 @@ void type_of_call getwdi(fname, lgname)
 #endif
       int  *lgname;
 {
-      char *malloc();
       char *ptalc, *pttext;
       int  fchput();
       int  nalc;

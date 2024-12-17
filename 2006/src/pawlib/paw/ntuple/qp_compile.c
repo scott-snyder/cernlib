@@ -49,6 +49,7 @@ QueryTree	*the_qt_record;
 int		 qp_current_cut;
 
 void qp_scanner_set_input( char * );
+int qp_parser_parse();
 
 
 static pTree

@@ -37,6 +37,7 @@
 
 /* extern functions */
 extern void restart_input_timer(void);
+extern void ku_last(const char*);
 
 /* extern widgets */
 extern Widget cwdLabel;

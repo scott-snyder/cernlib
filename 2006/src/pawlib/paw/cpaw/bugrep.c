@@ -106,7 +106,7 @@ str_new( char * const s )
 
 #include        <sys/utsname.h>
 
-static br_uname()
+static void br_uname()
 {
         struct utsname  un;
 

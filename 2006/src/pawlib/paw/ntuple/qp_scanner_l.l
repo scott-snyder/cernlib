@@ -84,7 +84,7 @@ qp_scanner_get_pos( char **s, int *i )
 	result = len; }
 */
 	
-yy_input_routine( char *buf, int * result, int max_size )
+void yy_input_routine( char *buf, int * result, int max_size )
 {
 /*
 	int len = max_size > inp_len ? inp_len : max_size;

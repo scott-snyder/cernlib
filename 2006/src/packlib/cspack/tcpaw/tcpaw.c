@@ -400,6 +400,13 @@ static FILE *logfile;
    static long timevar;       /* contains time returned by timexx */
    static SOCKET  ls = 0;     /* The server listen socket descriptor */
 
+void reply(char* s1, char* s2, char* s3);
+int chpass(char* user, char* pass);
+void ruserpass(char* host, char** aname, char** apass);
+int
+tsosub(char** ahost, int rport,  char* name, char* pass, char* cmd, unsigned short* sport);
+int getstr(int sock,char* buf, int cnt, char* errmesg);
+
 #ifndef _WIN32 
    extern char *inet_ntoa();
 #ifndef IBM
@@ -567,13 +574,13 @@ int *out;
  
         len = recv(s, idbuf, sizeof(idbuf), 0);
         if (len <= 0) {
-            reply("Bad id receive.\n", NULL);
+            reply("Bad id receive.\n", NULL, NULL);
             goto errout1;
         }
         idbuf[len-1]='\0';   /* SAFETY !! */
         if (--len > 0) for (i=0; i<len; i++) idbuf[i] = ~idbuf[i];
         if (sscanf((char *)idbuf, "%s %s", user, passwd) != 2) {
-            reply("Bad id record '%s'\n", idbuf);
+            reply("Bad id record '%s'\n", idbuf, NULL);
             goto errout1;
         }
 #ifdef VMS
@@ -1687,8 +1694,7 @@ retry:
         return(i);
 }
  
-reply(s1, s2, s3)
-    char *s1, *s2, *s3;
+void reply(char* s1, char* s2, char* s3)
 {
 #ifdef OSK
     char buff[100];
@@ -1706,9 +1712,7 @@ reply(s1, s2, s3)
 #endif /* LOGFILE */
 }
  
-sock_reply(s, s1, s2, s3)
-    int *s;
-    char *s1, *s2, *s3;
+void sock_reply(int* s, char* s1, char* s2, char* s3)
 {
  
 /* As reply() but use socket rather than stdout */
@@ -1770,8 +1774,7 @@ int CHPAS(user, pass)           /* For IBMMVS */
 #else /* ^IBM */
 #ifndef _WIN32
 #ifndef VMS
-int chpass(user, pass)           /* For Unix and other "normal" people */
-    char *user, *pass;
+int chpass(char* user, char* pass)           /* For Unix and other "normal" people */
 {
  
 #ifndef OSK
@@ -1811,14 +1814,14 @@ char     *reason;
  
         pw = getpwnam(user);
         if (pw == NULL) {
-                reply("Unknown user %s.\n", user);
+                reply("Unknown user %s.\n", user, NULL);
                 return(-2);
         }
  
 #ifdef linux_softland
         spwd = getspnam(user);
         if (spwd == NULL) {
-                reply("User %s has illegal shadow password\n",user);
+                reply("User %s has illegal shadow password\n",user, NULL);
                 return(-2);
         }
 #endif /* linux_softland */
@@ -1880,7 +1883,7 @@ char     *reason;
 #endif /* AFS */
  
 #endif /* APOPWD1 */
-                reply("Bad password for user %s.\n", pw->pw_name);
+                reply("Bad password for user %s.\n", pw->pw_name, NULL);
                 return(-3);
             }
 #ifdef ACE
@@ -1894,12 +1897,12 @@ char     *reason;
 #endif /* IBMRT */
         if (setegid(pw->pw_gid)) {
 #endif /* HPUX */
-                reply("Can't setegid for user %s.\n", pw->pw_name);
+                reply("Can't setegid for user %s.\n", pw->pw_name, NULL);
                 return(-4);
         }
 #ifndef NOINITGROUPS
         if (initgroups(pw->pw_name, pw->pw_gid)) {
-                reply("Can't initgroups for user %s.\n", pw->pw_name);
+                reply("Can't initgroups for user %s.\n", pw->pw_name, NULL);
                 return(-5);
         }
 #endif  /* NOINITGROUPS */
@@ -2384,8 +2387,8 @@ ruserpass(host, aname, apass)
 #endif
 
 #if defined(__APPLE__) || __GNUC__ > 3
-static rnetrc(char *host, char **aname, char **apass);
-static token();
+static void rnetrc(char *host, char **aname, char **apass);
+static int token();
 static void    catch();
 #endif
 
@@ -2408,8 +2411,7 @@ char   *ku_prop( /* char *prompt */ );
 
 static  FILE *cfile;
  
-ruserpass(host, aname, apass)
-        char *host, **aname, **apass;
+void ruserpass(char *host, char **aname, char **apass)
 {
  
         if (*aname == 0 || *apass == 0)
@@ -2449,8 +2451,7 @@ ruserpass(host, aname, apass)
 }
  
 static
-rnetrc(host, aname, apass)
-        char *host, **aname, **apass;
+void rnetrc(char* host, char** aname, char** apass)
 {
         char *hdir, buf[BUFSIZ];
         int t;
@@ -2529,7 +2530,7 @@ done:
 #endif
 
 static
-token()
+int token()
 {
 
         char *cp;
@@ -2589,7 +2590,7 @@ static int intrupt;
 /*** NOTE MAXPASSWD IS DEFINED AS 8 IN ALL STANDARD UNIX SYSTEMS, BUT THIS
  *** GIVES US PROBLEMS INTERWORKING WITH VMS AND CRAY-SECURID SYSTEMS. ***/
 #define MAXPASSWD     20       /* max significant characters in password */
- 
+
 char *
 getpass(prompt)
 char    *prompt;
@@ -2668,15 +2669,15 @@ rexec(char **ahost, unsigned short rport, char *name,
       char *pass, char *cmd, int *fd2p)
 #else
 # ifdef linux
-_rexec(ahost, rport, name, pass, cmd, fd2p)
+int _rexec(char** ahost, int rport, char* name, char* pass, char* cmd, int* fd2p)
 # else
 rexec(ahost, rport, name, pass, cmd, fd2p)
-# endif /* linux */
- 
         char **ahost;
         int rport;
         char *name, *pass, *cmd;
         int *fd2p;
+# endif /* linux */
+ 
 #endif
 {
 #ifdef IBM
@@ -3319,11 +3320,7 @@ char *command;
 #endif /* IBMMVS */
 /* client to connect to tsosubd on mvs */
 int
-tsosub(ahost, rport,  name, pass, cmd, sport)
-        char **ahost;
-        int rport;
-        char *name, *pass, *cmd;
-        unsigned short *sport;
+tsosub(char** ahost, int rport,  char* name, char* pass, char* cmd, unsigned short* sport)
 {
 #ifdef IBM
         extern char asciitoebcdic[];    /* translation tables */
@@ -3518,11 +3515,7 @@ bad:
         return (-1);
 }
  
-getstr(sock,buf, cnt, errmesg)
-int     *sock;
-char    *buf;
-int     cnt;              /* sizeof() the char array */
-char    *errmesg;         /* in case error message required */
+int getstr(int sock,char* buf, int cnt, char* errmesg)
 {
       char    c;
       int     k = 0;

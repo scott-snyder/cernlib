@@ -88,9 +88,7 @@ static void OutPixel(pix)
  *                    1 - if error                             *
  *                                                             *
  ***************************************************************/
-int GIFinfo(GIFarr, Width, Height, Ncols)
-      byte *GIFarr;
-       int *Width,*Height,*Ncols;
+int GIFinfo(byte* GIFarr, int* Width, int* Height, int* Ncols)
 {
   byte          b;
 
@@ -159,9 +157,7 @@ int GIFinfo(GIFarr, Width, Height, Ncols)
  *                    1 - if error                             *
  *                                                             *
  ***************************************************************/
-int GIFdecode(GIFarr, PIXarr, Width, Height, Ncols, R, G, B)
-        byte *GIFarr,*PIXarr,*R,*G,*B;
-         int *Width,*Height,*Ncols;
+int GIFdecode(byte* GIFarr, byte* PIXarr, int* Width, int* Height, int* Ncols, byte* R, byte* G, byte*B)
 {
   byte          b,                      /* working variable */
                 FinChar;                /* final character */

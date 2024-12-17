@@ -158,7 +158,7 @@ int km_display_kpanel (name, geometry)
     char *panel_name, *panel_htitle;
 
     static char *focus_tag;
-    static np = 0;
+    static int np = 0;
 
     if (name != NULL && name[0] != '\0') {
         panel_name = strdup (name);

@@ -105,7 +105,7 @@ XPoint *XRotTextExtents(Display*, XFontStruct*, float,
 #define XRotDrawAlignedImageString XRDAIS
 #endif
 extern float   XRotVersion();
-extern void    XRotSetMagnification();
+extern void    XRotSetMagnification(float);
 extern void    XRotSetBoundingBoxPad();
 extern int     XRotDrawString();
 extern int     XRotDrawImageString();
@@ -208,7 +208,7 @@ static char            *my_strdup();
 static char            *my_strtok();
 
 float                   XRotVersion();
-void                    XRotSetMagnification();
+void                    XRotSetMagnification(float);
 void                    XRotSetBoundingBoxPad();
 int                     XRotDrawString();
 int                     XRotDrawImageString();
@@ -322,8 +322,7 @@ float XRotVersion(str, n)
 /* Set the font magnification factor for all subsequent operations        */
 /**************************************************************************/
 
-void XRotSetMagnification(m)
-    float m;
+void XRotSetMagnification(float m)
 {
     if(m>0.) style.magnify=m;
 }

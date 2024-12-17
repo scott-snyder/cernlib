@@ -9,13 +9,13 @@
 #include "zbook/pilot_c.h"
 #if defined(CERNLIB_UNIX)
 #if defined(CERNLIB_QX_SC)
-zjump_(name,p1,p2,p3,p4)
+void zjump_(name,p1,p2,p3,p4)
 #endif
 #if defined(CERNLIB_QXNO_SC)
-zjump(name,p1,p2,p3,p4)
+void zjump(name,p1,p2,p3,p4)
 #endif
 #if defined(CERNLIB_QXCAPT)
-ZJUMP(name,p1,p2,p3,p4)
+void ZJUMP(name,p1,p2,p3,p4)
 #endif
 char *p1, *p2, *p3, *p4;
 void (**name)();

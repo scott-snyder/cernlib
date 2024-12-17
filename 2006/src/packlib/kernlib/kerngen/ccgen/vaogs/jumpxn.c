@@ -45,33 +45,29 @@ void jumpst_(iadr)
 }
 
 /* ----   jumpxn   ---------------------------------------------  */
-jumpx0_()
+void jumpx0_()
 {
     (*tarsub)();
     return;
 }
 
-jumpx1_(ipara)
-    char *ipara;
+void jumpx1_(char* ipara)
 {
     (*tarsub)(ipara);
     return;
 }
 
-jumpx2_(ipara, iparb)
-    char *ipara, *iparb;
+void jumpx2_(char* ipara, char* iparb)
 {
     (*tarsub)(ipara, iparb);
     return;
 }
-jumpx3_(ipara, iparb, iparc)
-    char *ipara, *iparb, *iparc;
+void jumpx3_(char* ipara, char* iparb, char* iparc)
 {
     (*tarsub)(ipara, iparb, iparc);
     return;
 }
-jumpx4_(ipara, iparb, iparc, ipard)
-    char *ipara, *iparb, *iparc, *ipard;
+void jumpx4_(char* ipara, char* iparb, char* iparc, char* ipard)
 {
     (*tarsub)(ipara, iparb, iparc, ipard);
     return;
