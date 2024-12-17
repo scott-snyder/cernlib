@@ -17,6 +17,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdio.h>
 
 /*>    ROUTINE CIREW
   CERN PROGLIB# Z311    CIREW           .VERSION KERNFOR  4.31  911111

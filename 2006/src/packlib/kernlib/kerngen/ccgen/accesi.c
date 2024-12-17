@@ -16,6 +16,8 @@
  *
  */
 #include "kerngen/pilot.h"
+#include <unistd.h>
+#include <malloc.h>
 #ifdef CERNLIB_WINNT
 #  include <io.h>
 #endif

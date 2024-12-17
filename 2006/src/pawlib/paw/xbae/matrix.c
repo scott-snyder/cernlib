@@ -46,9 +46,11 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include <X11/Xos.h>
 #include <X11/StringDefs.h>
 #include <Xm/XmP.h>
+#include <Xm/DrawP.h>
 #include <Xm/AtomMgr.h>
 #include <Xm/ScrollBar.h>
 /* #include <Xbae/Cell.h> */

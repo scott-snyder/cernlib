@@ -20,6 +20,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdio.h>
 
 /*>    ROUTINE CFPUT
   CERN PROGLIB# Z310    CFPUT           .VERSION KERNFOR  4.29  910718

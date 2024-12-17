@@ -31,6 +31,7 @@ static char sccsid[] =  "@(#)serror.c 1.24 2/21/95  CERN CN-PDP/CS F. Hemmer";
  
 #include <serrno.h>     /* special error numbers and codes              */
 #include <log.h>        /* logger functions                             */
+#include <string.h>
  
 #if defined(vms)
  

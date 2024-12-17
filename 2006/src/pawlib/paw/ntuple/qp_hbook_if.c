@@ -107,6 +107,7 @@
  */
 
 #include	<string.h>
+#include	<ctype.h>
 
 #include	"str.h"
 

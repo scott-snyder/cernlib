@@ -20,6 +20,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdio.h>
 
 /*>    ROUTINE CIPUT
   CERN PROGLIB# Z311    CIPUT           .VERSION KERNFOR  4.37  930715

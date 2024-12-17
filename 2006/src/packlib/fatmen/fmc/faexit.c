@@ -16,6 +16,7 @@
  *
  */
 #include "fatmen/pilot.h"
+#include <stdlib.h>
 #if defined(CERNLIB_QXCAPT)
 #ifndef CERNLIB_MSSTDCALL
   void FAEXIT(icode)

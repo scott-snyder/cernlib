@@ -22,6 +22,7 @@ static char sccsid[] =
  
 /* trace.c      General tracing facility                                */
  
+#include <stdlib.h>
 #include <stdio.h>              /* standard input/output definitions    */
 #if !defined(LINUX)
 #include <varargs.h>            /* variable argument list definitions   */

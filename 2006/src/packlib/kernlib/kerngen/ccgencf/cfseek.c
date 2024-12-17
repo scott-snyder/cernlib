@@ -13,6 +13,7 @@
  *
  */
 #include "kerngen/pilot.h"
+#include <stdio.h>
 /*>    ROUTINE CFSEEK
   CERN PROGLIB# Z310    CFSEEK          .VERSION KERNFOR  4.29  910718
   ORIG. 12/01/91, JZ

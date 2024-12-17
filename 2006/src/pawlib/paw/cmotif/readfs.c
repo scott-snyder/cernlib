@@ -16,6 +16,7 @@
  *
  */
 #include "paw/pilot.h"
+#include <unistd.h>
 /*CMZ :  2.04/15 05/03/94  14.53.31  by  Fons Rademakers*/
 /*-- Author :    Fons Rademakers   17/11/92*/
 

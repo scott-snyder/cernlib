@@ -30,6 +30,8 @@
 #else
 #include "osdep.h"              /* Operating system dependencies        */
 #endif /* vms */
+
+#include <stdlib.h>
  
 /*
  * Important note: the SYSREQ request/reply blocks do NOT correspond

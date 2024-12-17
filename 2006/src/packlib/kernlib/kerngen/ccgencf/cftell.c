@@ -13,6 +13,7 @@
  *
  */
 #include "kerngen/pilot.h"
+#include <stdio.h>
 /*>    ROUTINE CFTELL
   CERN PROGLIB# Z310    CFTELL          .VERSION KERNFOR  4.29  910718
   ORIG. 12/01/91, JZ

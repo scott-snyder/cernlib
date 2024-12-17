@@ -34,6 +34,7 @@
  */
 
 #include <Xm/XmP.h>
+#include <Xm/DrawP.h>
 /* #include <Xbae/CellP.h> */
 #include "cellp.h"
 

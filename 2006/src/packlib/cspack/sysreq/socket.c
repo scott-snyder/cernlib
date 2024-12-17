@@ -111,6 +111,9 @@ static struct {         /* VMS generic descriptor               */
 #else /* ! vms */
 
 #include <sys/ioctl.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <string.h>
  
 #define READ(x,y,z)     recv(x,y,z,0)   /* Actual read system call      */
 #define WRITE(x,y,z)    send(x,y,z,0)   /* Actual write system  call    */

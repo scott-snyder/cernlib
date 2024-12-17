@@ -22,6 +22,8 @@
  *
  */
 #include "comis/pilot.h"
+#include <stdlib.h>
+#include <stdio.h>
 #if (defined(CERNLIB_SUN)||defined(CERNLIB_SGI)||defined(CERNLIB_IBMRT)||defined(CERNLIB_ALPHA_OSF)||defined(CERNLIB_LINUX))&&(defined(CERNLIB_SHL))
 /*CMZ :          22/05/95  18.40.45  by  Julian Bunn*/
 /*-- Author :*/

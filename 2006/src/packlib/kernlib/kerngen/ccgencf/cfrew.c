@@ -14,6 +14,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdio.h>
 
 /*>    ROUTINE CFREW
   CERN PROGLIB# Z310    CFREW           .VERSION KERNFOR  4.29  910718

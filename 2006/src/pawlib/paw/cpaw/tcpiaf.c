@@ -60,6 +60,8 @@
  *
  */
 #include "paw/pilot.h"
+#include <unistd.h>
+#include <ctype.h>
 #if defined(CERNLIB_CZ)
 /*CMZ :          30/01/96  14.06.38  by  Timo Hakulinen*/
 /*-- Author :*/

@@ -23,6 +23,7 @@
  *
  */
 #include "comis/pilot.h"
+#include <stdio.h>
 #if !defined(CERNLIB_ALPHA_OSF)
 /*CMZ :          22/11/95  10.40.22  by  Julian Bunn*/
 /*-- Author :*/

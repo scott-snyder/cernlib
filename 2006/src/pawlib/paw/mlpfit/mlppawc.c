@@ -15,6 +15,7 @@
 #include <cfortran/kuip.h>
 
 #include "mlp_inter.h"
+#include "mlp_gen.h"
 #include "../ntuple/str.h"
 
 extern void     ku_alfa( void );

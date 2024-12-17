@@ -14,6 +14,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdlib.h>
 
 /*>    ROUTINE RENAMI
   CERN PROGLIB# Z265    RENAMI          .VERSION KERNFOR  4.31  911111

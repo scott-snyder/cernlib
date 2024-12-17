@@ -26,6 +26,7 @@
 #include <Xm/XmP.h>
 #include <Xm/Label.h>
 #include <Xm/LabelP.h>
+#include <Xm/IconButtonP.h>
 /* #include "IconWidget.h" */
 #include "icwid.h"
 /* #include "IconWidgetP.h" */

@@ -16,6 +16,7 @@
 *
 */
 #include "kerngen/pilot.h"
+#include <unistd.h>
 #if defined(CERNLIB_QMDOS)
 #include "wntgs/tmproi.c"
 #else

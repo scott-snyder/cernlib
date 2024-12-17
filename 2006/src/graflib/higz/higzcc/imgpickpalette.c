@@ -29,7 +29,9 @@
 #include "higz/pilot.h"
 #if defined(CERNLIB_GIF)
 #include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 void CollectImageColors(unsigned long, unsigned long **, int *, int *);
 int FindColor(unsigned long, unsigned long *, int);

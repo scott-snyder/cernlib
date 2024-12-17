@@ -75,6 +75,10 @@ extern volatile int noshare      vmserrno;
 #include <prvdef.h>     /* privileges definitions                       */
  
 #endif /* vms */
+
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
  
 #if defined(vms) && defined(DECC)
 #define __alpha

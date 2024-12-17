@@ -23,6 +23,7 @@
           TEXT  the value to be assigned
 */
 #include <stdio.h>
+#include <stdlib.h>
 #include "kerngen/fortchar.h"
 #include "kerngen/fortranc.h"
 

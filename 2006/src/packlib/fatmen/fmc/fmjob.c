@@ -18,6 +18,7 @@
 #include "fatmen/pilot.h"
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 #ifndef WIN32
 #include <pwd.h>
 #else

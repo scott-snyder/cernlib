@@ -26,6 +26,7 @@
 */
 #include "kerngen/cf_seek.h"
 #include "kerngen/cf_xaft.h"
+#include <stdio.h>
 #if defined(CERNLIB_QX_SC)
 void type_of_call citell_(lundes, jcbyt, stat)
 #endif

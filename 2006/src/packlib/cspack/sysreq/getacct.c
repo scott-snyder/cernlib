@@ -34,6 +34,7 @@ static char sccsid[] = "@(#)getacct.c   1.7 7/13/94 CERN CN-PDP/CS F. Hemmer";
 #   include <pwd.h>
 # endif /* WIN32 */
 #endif
+#include <stdlib.h>
  
  
 /*

@@ -14,6 +14,7 @@
 */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdlib.h>
 
 /*>    ROUTINE READLNI
   CERN PROGLIB# Z265    READLNI         .VERSION KERNFOR  4.36  930602

@@ -20,7 +20,8 @@ static char sccsid[] =
 #endif /* not lint */
  
 /* sysreqc.c    C interface to the SYSREQ communication system          */
- 
+
+#include <unistd.h>
 #include "config.h"             /* configuration parameters             */
 #if !defined(vms)
 #include <sysreq.h>             /* sysreq interface definitions         */

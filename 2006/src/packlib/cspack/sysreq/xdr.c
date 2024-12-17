@@ -21,6 +21,7 @@ Hemmer";
 #if !defined(DEBUG)
 #define DEBUG   0
 #endif /* DEBUG */
+#include <stdlib.h>
 #include <stdio.h>              /* standard Input/Output definitions    */
  
 #ifdef VM

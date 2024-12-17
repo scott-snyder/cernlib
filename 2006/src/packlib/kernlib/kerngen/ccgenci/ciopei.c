@@ -20,6 +20,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdlib.h>
 
 #if defined(CERNLIB_QMOS9)
 #include "os9gs/ciopei.c"

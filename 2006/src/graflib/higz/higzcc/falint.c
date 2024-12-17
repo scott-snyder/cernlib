@@ -16,6 +16,7 @@
  *
  */
 #include "higz/pilot.h"
+#include <unistd.h>
 #if (defined(CERNLIB_FALCO))&&(!defined(CERNLIB_VAX))
 /*CMZ :  1.23/06 22/11/95  10.36.54  by  O.Couet*/
 /*-- Author :*/

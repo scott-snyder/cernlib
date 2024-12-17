@@ -10,6 +10,8 @@
  *
  */
 #include "higz/pilot.h"
+#include <stdlib.h>
+#include <string.h>
 #if (defined(CERNLIB_X11))&&(!defined(CERNLIB_WINNT))
 /*CMZ :  1.23/06 22/11/95  10.13.12  by  O.Couet*/
 /*-- Author :    O.Couet   17/11/93*/

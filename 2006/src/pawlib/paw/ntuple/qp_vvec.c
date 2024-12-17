@@ -19,6 +19,7 @@
  */
 
 #include	<stdlib.h>
+#include	<string.h>
 
 #include	"qp_report.h"
 #include	"qp_vvec.h"

@@ -14,6 +14,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdio.h>
 
 /*>    ROUTINE CISIZE
   CERN PROGLIB# Z311    CISIZE          .VERSION KERNFOR  4.31  911111

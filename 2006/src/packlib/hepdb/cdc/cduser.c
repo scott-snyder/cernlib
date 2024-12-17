@@ -19,6 +19,7 @@
 #include "hepdb/pilot.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #ifdef WIN32
 #include <windows.h>
 #else
@@ -26,6 +27,8 @@
 #include <pwd.h>
 #endif
 #endif
+
+#include <unistd.h>
  
 #define MAXNAME 8
  

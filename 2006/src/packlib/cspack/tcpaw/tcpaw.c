@@ -222,6 +222,8 @@
 #include <errno.h>
 #include <signal.h>
 #include <ctype.h>
+#include <sys/types.h>
+#include <grp.h>
  
 #ifdef AUTHENT
 #ifndef OSK
@@ -371,6 +373,11 @@ static char *Prog_Name = "tcpaw";               /* CUSTOMIZE THIS.. */
 #ifdef _WIN32
 #define LOGFILE "/tmp/PawServ.log"
 #endif
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <time.h>
+#include <malloc.h>
 
 #ifdef LOGFILE
 static FILE *logfile;

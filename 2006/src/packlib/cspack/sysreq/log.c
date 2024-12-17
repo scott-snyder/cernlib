@@ -39,6 +39,10 @@ Hemmer";
 #include <string.h>             /* string manipulation functions        */
 #endif /* vms */
 #include <time.h>               /* time related definitions             */
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/stat.h>
  
 #if defined(vms) && defined(DECC)
 #define __alpha

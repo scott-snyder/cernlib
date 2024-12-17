@@ -17,6 +17,7 @@
  */ 
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdlib.h>
 
 /*>    ROUTINE PERROI
   CERN PROGLIB# Z265    PERROI          .VERSION KERNFOR  4.31  911111

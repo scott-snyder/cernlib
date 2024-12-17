@@ -21,6 +21,7 @@
  *
  */
 #include "paw/pilot.h"
+#include <stdio.h>
 #if defined(CERNLIB_BUGREPORT)
 /*CMZ :  2.07/19 21/11/95  18.17.13  by  Unknown*/
 /*-- Author :    Maarten Ballintijn   24/08/94*/

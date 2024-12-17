@@ -36,6 +36,7 @@
 # endif
 #endif
 #include "kerngen/fortchar.h"
+#include <malloc.h>
 #if defined(CERNLIB_QX_SC)
 int type_of_call chdiri_(fname,lgname)
 #endif

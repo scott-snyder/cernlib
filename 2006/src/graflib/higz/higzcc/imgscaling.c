@@ -10,6 +10,7 @@
 #include "higz/pilot.h"
 #if defined(CERNLIB_GIF)
 #include <X11/Xlib.h>
+#include <X11/Xutil.h>
 #include <stdio.h>
 
 XImage * ImgScaling(Display *, XImage *, int, int);

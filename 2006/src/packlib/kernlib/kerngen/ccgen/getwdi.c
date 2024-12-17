@@ -17,6 +17,7 @@
  */
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
+#include <stdlib.h>
 
 /*>    ROUTINE GETWDI
   CERN PROGLIB# Z265    GETWDI          .VERSION KERNFOR  4.38  931108

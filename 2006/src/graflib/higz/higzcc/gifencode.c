@@ -7,6 +7,7 @@
  *
  */
 #include "higz/pilot.h"
+#include <string.h>
 #if defined(CERNLIB_GIF)
 /*CMZ :  1.21/10 04/10/94  14.25.09  by  O.Couet*/
 /*-- Author :    E.Chernyaev   19/01/94*/
