@@ -355,9 +355,9 @@ int main( argc, argv )
   }
   else {
     fprintf( stderr, "Enter CDF input file name: " );
-    gets( ifile );
+    fgets( ifile, sizeof(ifile), stdin );
     fprintf( stderr, "Enter definition output file name: " );
-    gets( ofile );
+    fgets( ofile, sizeof(ofile), stdin );
   }
 
   if( !explicit ) {
