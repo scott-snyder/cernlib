@@ -41,7 +41,7 @@ void type_of_call JMPLONG(area,fnum)
       siglongjmp(area,num);
 #endif
 #if !defined(CERNLIB_QSIGJMP)
-      longjmp(area,num);
+      longjmp((struct __jmp_buf_tag*)area,num);
 #endif
 }
 /*> END <----------------------------------------------------------*/
