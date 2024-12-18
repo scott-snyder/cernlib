@@ -271,10 +271,12 @@ static void Redisplay(w, event, region)
     DrawShadow (iw, True);
 
     /* for keyboard traversal */
+#if 0
     if (iw->primitive.highlighted)
         _XmHighlightBorder(w);
     else if (_XmDifferentBackground (w, XtParent (w)))
         _XmUnhighlightBorder(w);
+#endif
 }
 
 /************************************************************************
@@ -290,7 +292,7 @@ static void DrawShadow (iw, really)
     Boolean      in = (iw->icon.armed && really) ||
                       iw->icon.shadow_type == XmSHADOW_IN;
 
-    if ((iw->primitive.shadow_thickness) > 0 && XtIsRealized (iw)) {
+    if ((iw->primitive.shadow_thickness) > 0 && XtIsRealized ((Widget)iw)) {
         _XmDrawShadow (XtDisplay (iw), XtWindow (iw),
                        in ? iw->primitive.bottom_shadow_GC :
                             iw->primitive.top_shadow_GC,

@@ -1901,31 +1901,33 @@ int row, column;
         case XmGRID_NONE:
           break;
         case XmGRID_LINE:
-          _XmDrawShadow(XtDisplay(mw), win,
+          XmeDrawShadows(XtDisplay(mw), win,
                         mw->matrix.grid_line_gc,
                         mw->matrix.grid_line_gc,
-                        mw->matrix.cell_shadow_thickness,
                         x, y,
                         COLUMN_WIDTH(mw, column),
-                        ROW_HEIGHT(mw) );
+                        ROW_HEIGHT(mw),
+                        mw->matrix.cell_shadow_thickness, 0);
+
           break;
         case XmGRID_SHADOW_OUT:
-          _XmDrawShadow(XtDisplay(mw), win,
+          XmeDrawShadows(XtDisplay(mw), win,
                         mw->matrix.cell_bottom_shadow_clip_gc,
                         mw->matrix.cell_top_shadow_clip_gc,
-                        mw->matrix.cell_shadow_thickness,
                         x, y,
                         COLUMN_WIDTH(mw, column),
-                        ROW_HEIGHT(mw) );
+                        ROW_HEIGHT(mw),
+                        mw->matrix.cell_shadow_thickness, 0);
+                         
           break;
         case XmGRID_SHADOW_IN:
-          _XmDrawShadow(XtDisplay(mw), win,
+          XmeDrawShadows(XtDisplay(mw), win,
                         mw->matrix.cell_top_shadow_clip_gc,
                         mw->matrix.cell_bottom_shadow_clip_gc,
-                        mw->matrix.cell_shadow_thickness,
                         x, y,
                         COLUMN_WIDTH(mw, column),
-                        ROW_HEIGHT(mw) );
+                        ROW_HEIGHT(mw),
+                        mw->matrix.cell_shadow_thickness, 0);
           break;
         }
       }
@@ -1934,31 +1936,32 @@ int row, column;
         case XmGRID_NONE:
           break;
         case XmGRID_LINE:
-          _XmDrawShadow(XtDisplay(mw), win,
+          XmeDrawShadows(XtDisplay(mw), win,
                         mw->matrix.grid_line_gc,
                         mw->matrix.grid_line_gc,
-                        mw->matrix.cell_shadow_thickness,
                         x, y,
                         COLUMN_WIDTH(mw, column),
-                        ROW_HEIGHT(mw) );
+                        ROW_HEIGHT(mw),
+                        mw->matrix.cell_shadow_thickness, 0);
+
           break;
         case XmGRID_SHADOW_OUT:
-          _XmDrawShadow(XtDisplay(mw), win,
+          XmeDrawShadows(XtDisplay(mw), win,
                         mw->manager.bottom_shadow_GC,
                         mw->manager.top_shadow_GC,
-                        mw->matrix.cell_shadow_thickness,
                         x, y,
                         COLUMN_WIDTH(mw, column),
-                        ROW_HEIGHT(mw) );
+                        ROW_HEIGHT(mw),
+                        mw->matrix.cell_shadow_thickness, 0);
           break;
         case XmGRID_SHADOW_IN:
-          _XmDrawShadow(XtDisplay(mw), win,
+          XmeDrawShadows(XtDisplay(mw), win,
                         mw->manager.top_shadow_GC,
                         mw->manager.bottom_shadow_GC,
-                        mw->matrix.cell_shadow_thickness,
                         x, y,
                         COLUMN_WIDTH(mw, column),
-                        ROW_HEIGHT(mw) );
+                        ROW_HEIGHT(mw),
+                        mw->matrix.cell_shadow_thickness, 0);
           break;
         }
       }
@@ -2213,16 +2216,16 @@ Rectangle *expose;
      * truncated to nearest row.  We use cell_visible_height instead.
      */
     if (mw->manager.shadow_thickness)
-        _XmDrawShadow(XtDisplay(mw), XtWindow(mw),
+        XmeDrawShadows(XtDisplay(mw), XtWindow(mw),
                       mw->manager.bottom_shadow_GC,
                       mw->manager.top_shadow_GC,
-                      mw->manager.shadow_thickness,
                       ROW_LABEL_WIDTH(mw),
                       COLUMN_LABEL_HEIGHT(mw),
                       ClipChild(mw)->core.width + FIXED_COLUMN_WIDTH(mw) +
                           2 * mw->manager.shadow_thickness,
                       mw->matrix.cell_visible_height + FIXED_ROW_HEIGHT(mw) +
-                          2 * mw->manager.shadow_thickness);
+                          2 * mw->manager.shadow_thickness,
+                       mw->manager.shadow_thickness, 0);
 }
 
 /*
@@ -3469,7 +3472,7 @@ XmScrollBarCallbackStruct *call_data;
      */
     VERT_ORIGIN(mw) = call_data->value;
 
-    if (!XtIsRealized(mw))
+    if (!XtIsRealized((Widget)mw))
         return;
 
     /*
@@ -3648,7 +3651,7 @@ XmScrollBarCallbackStruct *call_data;
      */
     HORIZ_ORIGIN(mw) = call_data->value;
 
-    if (!XtIsRealized(mw))
+    if (!XtIsRealized((Widget)mw))
         return;
 
     /*
@@ -6164,7 +6167,7 @@ int num_rows;
     (*((XbaeMatrixWidgetClass) XtClass(mw))->matrix_class.cancel_edit)
         (mw, True);
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Generate expose events on Matrix and Clip to force the
          * new rows to be drawn.
@@ -6256,7 +6259,7 @@ DeleteRows.",
     (*((XbaeMatrixWidgetClass) XtClass(mw))->matrix_class.cancel_edit)
         (mw, True);
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Generate expose events on Matrix and Clip to force the
          * rows to be redrawn.
@@ -6351,7 +6354,7 @@ int num_columns;
     (*((XbaeMatrixWidgetClass) XtClass(mw))->matrix_class.cancel_edit)
         (mw, True);
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Generate expose events on Matrix and Clip to force the
          * new columns to be drawn.
@@ -6448,7 +6451,7 @@ DeleteColumns.",
     (*((XbaeMatrixWidgetClass) XtClass(mw))->matrix_class.cancel_edit)
         (mw, True);
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Generate expose events on Matrix and Clip to force the
          * columns to be redrawn.
@@ -6530,7 +6533,7 @@ in SetRowColors.",
         for (j = 0; j < mw->matrix.columns; j++)
             mw->matrix.cell_background[i + position][j] = colors[i];
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Redraw all the visible non-fixed cells. We don't need to clear first
          * since only the color changed.
@@ -6628,7 +6631,7 @@ in SetColumnColors.",
         for (j = 0; j < num_colors; j++)
             mw->matrix.cell_background[i][j + position] = colors[j];
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Redraw all the visible non-fixed cells. We don't need to clear first
          * since only the color changed.
@@ -6718,7 +6721,7 @@ SetCellColor.",
      */
     mw->matrix.cell_background[row][column] = color;
 
-    if (XtIsRealized(mw)) {
+    if (XtIsRealized((Widget)mw)) {
         /*
          * Redraw the cell if it is visible
          */

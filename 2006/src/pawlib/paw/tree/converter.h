@@ -11,9 +11,11 @@
 #ifndef _CONVERTER_H_
 #define _CONVERTER_H_
 
+#include "X11/StringDefs.h"
+
 typedef int XtGravity;
 
-#define XtRGravity "Gravity"
+//#define XtRGravity "Gravity"
 #define XtEForget "forget"
 #define XtENorthWest "northwest"
 #define XtENorth "north"

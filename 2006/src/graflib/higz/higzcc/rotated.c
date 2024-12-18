@@ -486,7 +486,7 @@ static int XRotPaintAlignedString(dpy, font, angle, drawable, gc, x, y, text,
     if(item==NULL) return (int)NULL;
 
     /* this gc has similar properties to the user's gc */
-    my_gc=XCreateGC(dpy, drawable, NULL, 0);
+    my_gc=XCreateGC(dpy, drawable, 0, 0);
     XCopyGC(dpy, gc, GCForeground|GCBackground|GCFunction|GCPlaneMask,
             my_gc);
 
@@ -550,7 +550,7 @@ static int XRotPaintAlignedString(dpy, font, angle, drawable, gc, x, y, text,
 
         empty_stipple=XCreatePixmap(dpy, drawable, 1, 1, 1);
 
-        depth_one_gc=XCreateGC(dpy, empty_stipple, NULL, 0);
+        depth_one_gc=XCreateGC(dpy, empty_stipple, 0, 0);
         XSetForeground(dpy, depth_one_gc, 0);
         XFillRectangle(dpy, empty_stipple, depth_one_gc, 0, 0, 2, 2);
 
@@ -606,7 +606,7 @@ static int XRotPaintAlignedString(dpy, font, angle, drawable, gc, x, y, text,
                    item->cols_out, item->rows_out, 1);
 
                 /* create a GC */
-                depth_one_gc=XCreateGC(dpy, new_bitmap, NULL, 0);
+                depth_one_gc=XCreateGC(dpy, new_bitmap, 0, 0);
                 XSetForeground(dpy, depth_one_gc, 1);
                 XSetBackground(dpy, depth_one_gc, 0);
 
@@ -706,7 +706,7 @@ static int XRotDrawHorizontalString(dpy, font, drawable, gc, x, y, text,
     DEBUG_PRINT1("**\nHorizontal text.\n");
 
     /* this gc has similar properties to the user's gc (including stipple) */
-    my_gc=XCreateGC(dpy, drawable, NULL, 0);
+    my_gc=XCreateGC(dpy, drawable, 0, 0);
     XCopyGC(dpy, gc,
           GCForeground|GCBackground|GCFunction|GCStipple|GCFillStyle|
           GCTileStipXOrigin|GCTileStipYOrigin|GCPlaneMask, my_gc);
@@ -1033,7 +1033,7 @@ static RotatedTextItem *XRotCreateTextItem(dpy, font, angle, text, align)
              item->cols_in, item->rows_in, 1);
 
     /* create a GC for the bitmap */
-    font_gc=XCreateGC(dpy, canvas, NULL, 0);
+    font_gc=XCreateGC(dpy, canvas, 0, 0);
     XSetBackground(dpy, font_gc, 0);
     XSetFont(dpy, font_gc, font->fid);
 
