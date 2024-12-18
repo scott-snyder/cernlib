@@ -34,7 +34,7 @@ void  type_of_call SIGPRNT()
 #ifndef CERNLIB_WINNT
       sigset_t   oldmask;
 
-      sigprocmask (NULL, NULL, &oldmask);
+      sigprocmask (0, NULL, &oldmask);
 
       printf (" blocked signals are: %x\n", oldmask);
 #else

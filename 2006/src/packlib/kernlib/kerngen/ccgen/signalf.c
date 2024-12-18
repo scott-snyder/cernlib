@@ -15,6 +15,7 @@
  * Kernlib
  *
  */
+#define _GNU_SOURCE
 #include "kerngen/pilot.h"
 #include "kerngen/fortranc.h"
 
@@ -55,11 +56,11 @@ int type_of_call signalf(signum,funct,flag)
 int type_of_call SIGNALF(signum,funct,flag)
 #endif
       int  *signum, *flag;
-      int  *funct;
+      sighandler_t funct;
 {
       int  signo, istat;
-      int  handler;
-      void *oldhand;
+      sighandler_t  handler;
+      sighandler_t oldhand;
 
       signo = *signum;
 
@@ -67,11 +68,11 @@ int type_of_call SIGNALF(signum,funct,flag)
       if (*flag < 0)          handler = *funct;
 #endif
 #if !defined(CERNLIB_QCCINDAD)
-      if (*flag < 0)          handler = (int)funct;
+      if (*flag < 0)          handler = funct;
 #endif
-        else if (*flag == 0)  handler = (int)SIG_DFL;
-        else if (*flag == 1)  handler = (int)SIG_IGN;
-        else                  handler = *flag;
+        else if (*flag == 0)  handler = SIG_DFL;
+        else if (*flag == 1)  handler = SIG_IGN;
+        else                  handler = (sighandler_t)*flag;
 
       oldhand = signal(signo,handler);
       istat   = (int)oldhand;
