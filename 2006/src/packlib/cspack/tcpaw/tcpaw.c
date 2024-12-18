@@ -544,7 +544,7 @@ int *out;
 #ifdef SOCKETS
         memset ((char *)&peeraddr_in, 0, sizeof(struct sockaddr_in));
         peerlen = sizeof(peeraddr_in);
-        if (getpeername(s, &peeraddr_in, &peerlen) == SOCKET_ERROR) {
+        if (getpeername(s, (struct sockaddr*)&peeraddr_in, &peerlen) == SOCKET_ERROR) {
 #ifdef LOGFILE
                 fprintf(logfile, "%s: getpeername failed\n", Prog_Name);
 #endif /* LOGFILE */
@@ -823,7 +823,7 @@ int   *port;                            /* VM */
         }
 #endif
   /* Bind the listen address to the socket. */
-        if (bind(ls, &myaddr_in, sizeof(struct sockaddr_in)) == SOCKET_ERROR) {
+        if (bind(ls, (struct sockaddr*)&myaddr_in, sizeof(struct sockaddr_in)) == SOCKET_ERROR) {
 #if defined(IBM) || defined(_WIN32)
             tcperror("server_sock_setup: bind(ls,...)");
 #else
@@ -852,7 +852,7 @@ int   *port;                            /* VM */
                 exit(1);
         }
         addrlen = sizeof(struct sockaddr_in);
-        s = accept(ls, &peeraddr_in, &addrlen);
+        s = accept(ls, (struct sockaddr*)&peeraddr_in, &addrlen);
         if ( s == INVALID_SOCKET) {
                 fprintf(stderr, "%s: accept error\n", "server_sock_setup");
                 return(-1);
@@ -1313,7 +1313,7 @@ vmagain:
   /* Try to connect to the remote server at the address
    * which was just built into peeraddr.
    */
-        if (connect(s, &peeraddr_in, sizeof(struct sockaddr_in)) == SOCKET_ERROR) {
+        if (connect(s, (struct sockaddr*)&peeraddr_in, sizeof(struct sockaddr_in)) == SOCKET_ERROR) {
 #ifndef _WIN32
             close(s);
 #else
@@ -1336,7 +1336,7 @@ vmagain:
         }
  
         addrlen = sizeof(struct sockaddr_in);
-        if (getsockname(s, &myaddr_in, &addrlen) == SOCKET_ERROR) {
+        if (getsockname(s, (struct sockaddr*)&myaddr_in, &addrlen) == SOCKET_ERROR) {
 #if defined(IBM) || defined(_WIN32)
             tcperror("client_sock_setup");
 #else
@@ -2591,6 +2591,7 @@ static int intrupt;
  *** GIVES US PROBLEMS INTERWORKING WITH VMS AND CRAY-SECURID SYSTEMS. ***/
 #define MAXPASSWD     20       /* max significant characters in password */
 
+#if 0 // in glibc
 char *
 getpass(prompt)
 char    *prompt;
@@ -2651,6 +2652,7 @@ char    *prompt;
                 (void) kill(getpid(), SIGINT);
         return(pbuf);
 }
+#endif
  
 static void
 catch()
@@ -2722,7 +2724,7 @@ retry:
                              ((struct in_addr *)(hp->h_addr))->s_addr;
 /*              bcopy(hp->h_addr, (caddr_t)&sin.sin_addr, hp->h_length); */
         }
-        if (connect(s, &sin, sizeof(struct sockaddr_in)) == SOCKET_ERROR ) {
+        if (connect(s, (struct sockaddr*)&sin, sizeof(struct sockaddr_in)) == SOCKET_ERROR ) {
 #ifndef _WIN32
                 if (errno == ECONNREFUSED && timo <= 16) {
                         (void) close(s);
@@ -3382,7 +3384,7 @@ retry:
                              ((struct in_addr *)(hp->h_addr))->s_addr;
 /*              bcopy(hp->h_addr, (caddr_t)&sin.sin_addr, hp->h_length); */
         }
-        if (connect(s, &sin, sizeof(struct sockaddr_in)) == SOCKET_ERROR) {
+        if (connect(s, (struct sockaddr*)&sin, sizeof(struct sockaddr_in)) == SOCKET_ERROR) {
 #ifndef WIN32
                 if (errno == ECONNREFUSED && timo <= 16) {
                         (void) close(s);
