@@ -437,7 +437,8 @@ br_mail_file( char *addr, char *subj, char *file )
 #if (defined(CERNLIB_UNIX))&&(!defined(CERNLIB_WINNT))&&(!defined(CERNLIB_MACOSX))
 {
         FILE            *mfp, *fp;
-        char            line[1024], my_addr[L_cuserid];
+        char            line[1024];
+        char            *my_addr;
         time_t          clock;
         struct tm       *ts;
 
@@ -447,7 +448,7 @@ br_mail_file( char *addr, char *subj, char *file )
                 return MAIL_ERROR;
         }
 
-        cuserid( my_addr );
+        my_addr = getlogin();
 
         sprintf( line, "/usr/lib/sendmail -t" );
         mfp = popen( line, "w" );
